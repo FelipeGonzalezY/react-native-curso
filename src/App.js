@@ -14,6 +14,25 @@ class Hello extends Component {
   }
 }
 
+class Text extends Component {
+  render(){
+    const { boolean, arrayOfNumbers, multiply } = this.props;
+
+    const isTexto = boolean ? "Verdadero" : "Falso";
+    const mappedArray = arrayOfNumbers.map(multiply);
+    return(
+    <div>
+        <p>{this.props.text}</p>
+        <p>{this.props.number}</p>
+        <p>{isTexto}</p>
+        <p>{this.props.arrayOfNumbers.join(", ")}</p>
+        <p>{mappedArray.join(", ")}</p>
+        <p>{this.props.objectWithInfo.key}</p>
+    </div>
+    )
+  }
+}
+
 class App extends Component {
   render(){
     return (
@@ -29,6 +48,14 @@ class App extends Component {
           >
             Learn React
           </a>
+          <Text
+            arrayOfNumbers={[2,3,4,5]}
+            text="Text en string"
+            number={2}
+            boolean={false}
+            objectWithInfo={{key:'uno',key2:'dos'}}
+            multiply={num => num *3}
+          />
         </header>
       </div>
     );
