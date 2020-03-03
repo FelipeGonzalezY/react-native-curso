@@ -16,18 +16,25 @@ class Hello extends Component {
 
 class Text extends Component {
   render(){
-    const { boolean, arrayOfNumbers, multiply } = this.props;
+    const {
+      arrayOfNumbers,
+      boolean,
+      multiply,
+      number,
+      objectWithInfo,
+      text
+    } = this.props;
 
     const isTexto = boolean ? "Verdadero" : "Falso";
     const mappedArray = arrayOfNumbers.map(multiply);
     return(
     <div>
-        <p>{this.props.text}</p>
-        <p>{this.props.number}</p>
+        <p>{text}</p>
+        <p>{number}</p>
         <p>{isTexto}</p>
-        <p>{this.props.arrayOfNumbers.join(", ")}</p>
+        <p>{arrayOfNumbers.join(", ")}</p>
         <p>{mappedArray.join(", ")}</p>
-        <p>{this.props.objectWithInfo.key}</p>
+        <p>{objectWithInfo.key}</p>
     </div>
     )
   }
